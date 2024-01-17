@@ -1,0 +1,29 @@
+{
+  "linkUpStatus": "",
+  "messageDisplay": "",
+  "demandNoteInfoList": [
+    {
+      "schemeType": "ENLS",
+      "atmPpsRefNum": "141363549973",
+      "demandNoteRefNum": "EV151841-6",
+      "outstandingPayable": 427,
+      "issueDate": "01/06/2023",
+      "dueDate": "01/07/2023",
+      "loanInfoList": [
+        {
+          "loanRefNum": "EV151841-6-01",
+          "loanStatus": "P",
+          "principal": 25000,
+          "principalRepaid": 10000
+        },
+        {
+          "loanRefNum": "EV151841-6-02",
+          "loanStatus": "P",
+          "principal": 25000,
+          "principalRepaid": 1500
+        }
+      ],
+      "remark": "Remark"
+    }
+  ]
+}

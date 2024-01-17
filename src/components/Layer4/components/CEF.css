@@ -1,0 +1,7 @@
+.outerSubArc {
+  display: none;
+}
+
+.subArc:last-of-type > path {
+  fill: #e4f2f5 !important;
+}

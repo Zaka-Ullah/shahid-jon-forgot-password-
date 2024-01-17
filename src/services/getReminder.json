@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "date": "21/06/2023",
+    "time": "16:00",
+    "subject": "subject 1",
+    "description": "description 1"
+  },
+  {
+    "id": 2,
+    "date": "21/06/2023",
+    "subject": "subject 1",
+    "description": "description 1"
+  },
+  {
+    "id": 3,
+    "subject": "subject 1",
+    "description": "description 1"
+  },
+  {
+    "id": 4,
+    "time": "16:00",
+    "subject": "subject 1",
+    "description": "description 1"
+  }
+]

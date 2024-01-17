@@ -1,0 +1,38 @@
+[
+  {
+    "label": "WFA",
+    "value": "wfa"
+  },
+  {
+    "label": "CEF",
+    "value": "cef"
+  },
+  {
+    "label": "TSFS",
+    "value": "tsfs"
+  },
+  {
+    "label": "FASP",
+    "value": "fasp"
+  },
+  {
+    "label": "STS-TERT",
+    "value": "sts-tert"
+  },
+  {
+    "label": "NLSFT",
+    "value": "nlsft"
+  },
+  {
+    "label": "NLSPS",
+    "value": "nlsps"
+  },
+  {
+    "label": "ENLS",
+    "value": "enls"
+  },
+  {
+    "label": "HH",
+    "value": "hh"
+  }
+]

@@ -1,0 +1,192 @@
+[
+  {
+      "id": 6,
+      "code": "DOC_TYPE",
+      "name": "Document Type",
+      "options": [
+          {
+              "id": 14,
+              "code": "01",
+              "label": {
+                  "zh-HK": "香港身份證",
+                  "en": "HKID",
+                  "zh-CN": "香港身份证"
+              }
+          },
+          {
+              "id": 15,
+              "code": "02",
+              "label": {
+                  "zh-HK": "護照",
+                  "en": "Passport",
+                  "zh-CN": "护照"
+              }
+          },
+          {
+              "id": 16,
+              "code": "03",
+              "label": {
+                  "zh-HK": "Re-entry permit",
+                  "en": "Re-entry permit",
+                  "zh-CN": "Re-entry permit"
+              }
+          },
+          {
+              "id": 17,
+              "code": "04",
+              "label": {
+                  "zh-HK": "Certificate of Identity",
+                  "en": "Certificate of Identity",
+                  "zh-CN": "Certificate of Identity"
+              }
+          },
+          {
+              "id": 18,
+              "code": "05",
+              "label": {
+                  "zh-HK": "Document of Identity",
+                  "en": "Document of Identity",
+                  "zh-CN": "Document of Identity"
+              }
+          },
+          {
+              "id": 19,
+              "code": "06",
+              "label": {
+                  "zh-HK": "Entry Permit",
+                  "en": "Entry Permit",
+                  "zh-CN": "Entry Permit"
+              }
+          },
+          {
+              "id": 20,
+              "code": "07",
+              "label": {
+                  "zh-HK": "Declaration of ID for Visa Purpose",
+                  "en": "Declaration of ID for Visa Purpose",
+                  "zh-CN": "Declaration of ID for Visa Purpose"
+              }
+          },
+          {
+              "id": 21,
+              "code": "08",
+              "label": {
+                  "zh-HK": "One-way Permit",
+                  "en": "One-way Permit",
+                  "zh-CN": "One-way Permit"
+              }
+          },
+          {
+              "id": 22,
+              "code": "09",
+              "label": {
+                  "zh-HK": "Mainland identity documents",
+                  "en": "Mainland identity documents",
+                  "zh-CN": "Mainland identity documents"
+              }
+          },
+          {
+              "id": 23,
+              "code": "99",
+              "label": {
+                  "zh-HK": "其他",
+                  "en": "Others",
+                  "zh-CN": "其他"
+              }
+          }
+      ]
+  },
+  {
+      "id": 8,
+      "code": "MAIN_COMM_CHANNEL",
+      "name": "Main Communication Channel",
+      "options": [
+          {
+              "id": 27,
+              "code": "EMAIL",
+              "label": {
+                  "zh-HK": "Email",
+                  "en": "Email",
+                  "zh-CN": "Email"
+              }
+          },
+          {
+              "id": 28,
+              "code": "PHONE",
+              "label": {
+                  "zh-HK": "Phone",
+                  "en": "Phone",
+                  "zh-CN": "Phone"
+              }
+          }
+      ]
+  },
+  {
+      "id": 9,
+      "code": "PREFERRED_LANG",
+      "name": "Preferred Language",
+      "options": [
+          {
+              "id": 29,
+              "code": "EN",
+              "label": {
+                  "zh-HK": "英文",
+                  "en": "English",
+                  "zh-CN": "英文"
+              }
+          },
+          {
+              "id": 30,
+              "code": "TC",
+              "label": {
+                  "zh-HK": "繁體中文",
+                  "en": "Traditional Chinese",
+                  "zh-CN": "繁体中文"
+              }
+          },
+          {
+              "id": 31,
+              "code": "SC",
+              "label": {
+                  "zh-HK": "簡體中文",
+                  "en": "Simplified Chinese",
+                  "zh-CN": "简体中文"
+              }
+          }
+      ]
+  },
+  {
+      "id": 9,
+      "code": "SCHEME_TYPE",
+      "name": "Schema Type",
+      "options": [
+          {
+              "id": 29,
+              "code": "AA",
+              "label": {
+                  "zh-HK": "SchemeA in zh-HK",
+                  "en": "SchemeA in English",
+                  "zh-CN": "SchemeA in zh-CN"
+              }
+          },
+          {
+              "id": 30,
+              "code": "BB",
+              "label": {
+                  "zh-HK": "SchemeB in zh-HK",
+                  "en": "SchemeB in English",
+                  "zh-CN": "SchemeB in zh-CN"
+              }
+          },
+          {
+              "id": 31,
+              "code": "CC",
+              "label": {
+                  "zh-HK": "SchemeC in zh-HK",
+                  "en": "SchemeC in English",
+                  "zh-CN": "SchemeC in zh-CN"
+              }
+          }
+      ]
+  }
+]
