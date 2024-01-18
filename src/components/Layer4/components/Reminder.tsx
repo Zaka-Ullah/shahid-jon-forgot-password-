@@ -6,19 +6,19 @@ import { ScheduleType } from "types/types";
 import reminder from "../../../services/getReminder.json";
 
 interface Props {
-  allHeaderHeight: number;
-  setAllHeaderHeight: React.Dispatch<React.SetStateAction<number>>;
-  // Add other props if your component has more props
+  allHeaderHeight: number; 
+  remainderTitleRef: React.RefObject<HTMLDivElement | null>;
 }
 const Remainder = (props: Props) => { 
-  const {allHeaderHeight,setAllHeaderHeight}=props 
+  const {allHeaderHeight,remainderTitleRef}=props 
   const [schedules] = useState<ScheduleType[]>(reminder);
 
   return (
     //title="BOX1" PLS try with all the length of title, i.e small,medium and long title
-    <Layer4BoxTemplate title="Reminder " current="remainder" icon={iconsData.reminder} 
-      allHeaderHeight={allHeaderHeight} 
-      setAllHeaderHeight={setAllHeaderHeight}
+    <Layer4BoxTemplate title="Reminder " icon={iconsData.reminder} 
+      allHeaderHeight={allHeaderHeight}  
+      currentHeader="remainder" 
+      remainderTitleRef={remainderTitleRef}
      >  
       <Box py={0} px={4} height="100%" boxSizing="border-box">
         <StyledContentBox className="content-box">

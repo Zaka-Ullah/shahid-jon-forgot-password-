@@ -12,8 +12,8 @@ import { useHomeContext } from "../../../contexts/HomeContext";
 import ConfirmsButtons from "../../ConfirmsButtons";
 
 type Props = { 
-  allHeaderHeight: number;
-  setAllHeaderHeight: React.Dispatch<React.SetStateAction<number>>;
+  allHeaderHeight: number; 
+  favouriteTitleRef: React.RefObject<HTMLDivElement | null>;
 };
 
 const underlineString = "----------";
@@ -22,7 +22,7 @@ const FAVOURITE_ITEMS_LEN_MAX = 6;
 const Favourite = (props: Props) => {
   const { reloadFavouriteList, onReloadFavouriteList, onReloadOptions } =
     useHomeContext(); 
-  const {allHeaderHeight,setAllHeaderHeight}=props
+  const {allHeaderHeight,favouriteTitleRef}=props
   const [favouriteItems, setFavouriteItems] = useState<FavouriteItemType[]>([]);
   const [deleteDialog, setDeleteDialog] = useState<FavouriteDialogType>({
     open: false,
@@ -62,10 +62,11 @@ const Favourite = (props: Props) => {
   }, [reloadFavouriteList]);
 
   return (
-    <Layer4BoxTemplate title="Box 3" current="favourite" icon={iconsData.favourite} 
-      allHeaderHeight={allHeaderHeight} 
-      setAllHeaderHeight={setAllHeaderHeight}
-     canscroll={false}>
+    <Layer4BoxTemplate title="Box 3"  icon={iconsData.favourite} 
+      allHeaderHeight={allHeaderHeight}  
+       favouriteTitleRef={favouriteTitleRef}
+     canscroll={false}  currentHeader="favourite"> 
+     
       <Box className="content-box">
         <Box p={2} px={2.5} height="100%" boxSizing="border-box">
           {favouriteItems.length < 1 && (

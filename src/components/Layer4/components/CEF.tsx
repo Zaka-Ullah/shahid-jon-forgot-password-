@@ -15,13 +15,14 @@ import { useHomeContext } from "contexts/HomeContext";
 type Props = {
   hasreminder: boolean; 
   allHeaderHeight: number;
-  setAllHeaderHeight: React.Dispatch<React.SetStateAction<number>>;
+   
+  cefTitleRef: React.RefObject<HTMLDivElement | null>;
 };
  
 const CIRCLCUT = 70;
 
 const CEF = (props: Props) => {
-  const { hasreminder,allHeaderHeight,setAllHeaderHeight } = props;
+  const { hasreminder,allHeaderHeight,cefTitleRef } = props;
   const [cefBalanceData, setCefBalanceData] = useState<CefBalanceDataType>({
     accountBalance: 0,
     count: 0,
@@ -59,13 +60,13 @@ const CEF = (props: Props) => {
 
   return (
     <Layer4BoxTemplate 
-    current="cef"
       title="BOX 2 BOX 2 BOX 2 BOX 2 BOX 2 BOX 2 BOX 2 BOX 2 LL"
       icon={iconsData.cef}
       headerbgcolor="#2ca9bf"
       canscroll={false} 
-      allHeaderHeight={allHeaderHeight} 
-      setAllHeaderHeight={setAllHeaderHeight}
+      allHeaderHeight={allHeaderHeight}  
+      cefTitleRef={cefTitleRef} 
+      currentHeader="cef"
     >
       <StyledContentBox
         className="content-box"

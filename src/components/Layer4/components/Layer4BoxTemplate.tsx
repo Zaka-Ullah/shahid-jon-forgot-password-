@@ -6,7 +6,7 @@ import {
   useTheme,
 } from "@mui/material";
 import { useRef } from "react";
-import { useEffect, useState } from "react";
+import { useEffect} from "react";
 import Img from "../../Img";
 import { ChildrenType } from "types/types";
 
@@ -20,9 +20,11 @@ type Props = {
   children: ChildrenType;
   headerbgcolor?: string;
   canscroll?: boolean;
-  allHeaderHeight: number;
-  setAllHeaderHeight: React.Dispatch<React.SetStateAction<number>>;
-  current: string;
+  allHeaderHeight: number;  
+  currentHeader:string;
+  cefTitleRef?:React.RefObject<HTMLDivElement | null>; 
+  remainderTitleRef?:React.RefObject<HTMLDivElement | null>; 
+  favouriteTitleRef?:React.RefObject<HTMLDivElement | null>; 
 };
 
 const Layer4BoxTemplate = (props: Props) => {
@@ -37,42 +39,14 @@ const Layer4BoxTemplate = (props: Props) => {
     children,
     headerbgcolor = "#9fa7ac",
     canscroll = true,
-    allHeaderHeight,
-    setAllHeaderHeight,
-    current,
-  } = props;
-  useEffect(() => {
-    const resizeObserver = new ResizeObserver((entries) => {
-      for (const entry of entries) {
-        const { height } = entry.contentRect;
-        if (allHeaderHeight < height) {
-          setAllHeaderHeight(height);
-        }
-      }
-    });
-    if (current === "cef") {
-      setTimeout(() => {
-        if (typographyRef.current) {
-          resizeObserver.observe(typographyRef.current);
-        }
-      }, 20);
-    } else if (current === "favourite") {
-      setTimeout(() => {
-        if (typographyRef.current) {
-          resizeObserver.observe(typographyRef.current);
-        }
-      }, 40);
-    } else {
-      setTimeout(() => {
-        if (typographyRef.current) {
-          resizeObserver.observe(typographyRef.current);
-        }
-      }, 60);
-    }
-
-    return () => {
-      resizeObserver.disconnect();
-    };
+    allHeaderHeight,  
+    currentHeader, 
+    cefTitleRef, 
+    remainderTitleRef, 
+    favouriteTitleRef,
+  }=props
+  useEffect(() => {  
+   console.log("all header height is" ,allHeaderHeight)
   }, []);
 
   return (
@@ -80,24 +54,23 @@ const Layer4BoxTemplate = (props: Props) => {
       <StyledHeadBox
         headerbgcolor={headerbgcolor}
         locale={locale}
-        onlyLargeScreen={onlyLargeScreen}
+        onlyLargeScreen={onlyLargeScreen}       
+        {...(currentHeader === "remainder" ? { ref: remainderTitleRef } : currentHeader === "cef" ? {ref:cefTitleRef}:{ref:favouriteTitleRef})}
+        height={allHeaderHeight} 
+        sx={{height:`${allHeaderHeight !== 0 ? `${allHeaderHeight}px`:"100%" }`}}
       >
         <Img src={icon} alt="icon" />
-        {allHeaderHeight !== 0 ? (
-          <StyledHeadTitle
-            className="title"
-            height={allHeaderHeight}
-            ref={typographyRef}
-          >
+         {
+           currentHeader === "cef" ?
+          <Typography className="title" >
             {/* <FormattedMessage id={title} /> */}
-            <Typography className="title">{title}</Typography>
-          </StyledHeadTitle>
-        ) : (
-          <Typography className="title" ref={typographyRef}>
+            <Typography className="title" >{title}</Typography>
+          </Typography>:<Typography className="title" >
             {/* <FormattedMessage id={title} /> */}
-            <Typography className="title">{title}</Typography>
+            <Typography className="title" >{title}</Typography>
           </Typography>
-        )}
+}
+  
       </StyledHeadBox>
 
       <StyledContentBox {...{ canscroll }}>{children}</StyledContentBox>
@@ -117,7 +90,7 @@ const StyledHeadTitle = styled(Typography)({
 const StyledHeadBox = styled(Box)<{
   headerbgcolor?: string;
   locale?: string;
-  onlyLargeScreen: boolean;
+  onlyLargeScreen: boolean;  
 }>(
   ({
     headerbgcolor = "#fff",
@@ -125,12 +98,13 @@ const StyledHeadBox = styled(Box)<{
     onlyLargeScreen = false,
     theme,
   }) => ({
-    height: "100%",
+    
     // whiteSpace: "nowrap",
-    // minHeight: 50,
+    // minHeight: 50,  
+    height:"100%",
     display: "flex",
     padding: "8px 16px",
-    gap: 16,
+    gap: 16, 
     backgroundColor: headerbgcolor,
     alignItems: "center",
     color: "#fff",
