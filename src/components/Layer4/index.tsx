@@ -3,19 +3,14 @@ import { Reminder, CEF, Favourite } from "./components";
 import { useEffect, useMemo, useState, useRef } from "react";
 import { useHomeContext } from "contexts/HomeContext";
 import useMediaBreakpoints from "hooks/useMediaBreakpoints";
-
 type Props = {};
-type headerHeight = {
-  CEF: number;
-  Remainder: number;
-  Favourite: number;
-};
-
 const Layer4 = (props: Props) => {
   const remainderTitleRef = useRef<HTMLDivElement | null>(null);
   const cefTitleRef = useRef<HTMLDivElement | null>(null);
   const favouriteTitleRef = useRef<HTMLDivElement | null>(null);
-
+   if(cefTitleRef !== null){ 
+    console.log(cefTitleRef.current?.children[1].children[0].textContent?.toString().length)
+   }
   const [greaterHeightTitleRef, setGreaterHeightTitleRef] = useState<
     React.RefObject<HTMLDivElement | null>
   >(useRef<HTMLDivElement | null>(null));
@@ -38,24 +33,50 @@ const Layer4 = (props: Props) => {
         remainderTitleRef.current?.getBoundingClientRect().height;
       let favouriteTitleHeight: number | undefined =
         favouriteTitleRef.current?.getBoundingClientRect().height;
-      let greater:number = 0;
+      let greater:number = 0;  
+       let greaterText:number=0
       if (
         cefTitleHeight !== undefined &&
         remainderTitleHeight !== undefined &&
         favouriteTitleHeight !== undefined
       ) {
-        if (cefTitleHeight > greater) {
+        if (cefTitleHeight > greater) { 
+          if(cefTitleRef !== null){     
+            const textContentLength =
+            cefTitleRef.current?.children[1]?.children[0]?.textContent?.toString()?.length ?? 0;
+    
+         if( textContentLength > greaterText){ 
+          greaterText=textContentLength
           greater = cefTitleHeight;
           setGreaterHeightTitleRef(cefTitleRef);
+         } 
         }
-        if (remainderTitleHeight > greater) {
+          
+        }
+        if (remainderTitleHeight > greater) { 
+          if(remainderTitleRef !== null){     
+            const textContentLength =
+            remainderTitleRef.current?.children[1]?.children[0]?.textContent?.toString()?.length ?? 0;
+    
+         if( textContentLength > greaterText){ 
+          greaterText=textContentLength
           greater = remainderTitleHeight;
           setGreaterHeightTitleRef(remainderTitleRef);
+         } 
+        }
+   
         }
         if (favouriteTitleHeight > greater) {
+          if(favouriteTitleRef !== null){     
+            const textContentLength =
+            favouriteTitleRef.current?.children[1]?.children[0]?.textContent?.toString()?.length ?? 0;
+    
+         if( textContentLength > greaterText){ 
+          greaterText=textContentLength
           greater = favouriteTitleHeight;
-
           setGreaterHeightTitleRef(favouriteTitleRef);
+         } 
+        }
         }
         setAllHeaderHeight(greater);
       }
@@ -68,7 +89,8 @@ const Layer4 = (props: Props) => {
   }, []);
   function handleResize() {
     setWindowWidth(window.innerWidth);
-  }
+  }     
+
   useEffect(() => {
     console.log(greaterHeightTitleRef);
     if (greaterHeightTitleRef !== null) {
