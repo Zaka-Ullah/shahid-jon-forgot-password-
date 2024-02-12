@@ -38,7 +38,9 @@ const Sidebar = (props: Props) => {
   return (
     <Box
       component="nav"
-      sx={{
+      sx={{   
+        
+        zIndex:`${openSidebar?"99999999999999999":"-1"}`,
         flexShrink: { md: 0 },
         width: upDesktopBreakpoint ? SIDEBAR_WIDTH_DESKTOP : "auto",
       }}
@@ -48,8 +50,9 @@ const Sidebar = (props: Props) => {
         variant={upDesktopBreakpoint ? "persistent" : "temporary"}
         anchor="left"
         open={openSidebar}
-        onClose={onCloseSidebar}
-        sx={{
+        onClose={onCloseSidebar}      
+        sx={{ 
+           
           "& .MuiDrawer-paper": {
             width: upDesktopBreakpoint
               ? SIDEBAR_WIDTH_DESKTOP

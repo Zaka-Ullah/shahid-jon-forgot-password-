@@ -23,7 +23,7 @@ const HomeContext = createContext<HomeContextType>({
   onReloadTabs: () => {},
   onReloadFavouriteList: () => {},
   onReloadOptions: () => {},
-  isGroupWithL2: false,
+  isGroupWithL2: true,
 });
 
 export const useHomeContext = () => {

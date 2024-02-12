@@ -1,7 +1,7 @@
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import { Suspense, lazy } from "react";
 import { Layout } from "components";
-import { ThemeProvider } from "@mui/material";
+import {  ThemeProvider } from "@mui/material";
 import theme from "themes/currentTheme";
 
 const Home = lazy(() => import("./pages/home"));
@@ -11,6 +11,7 @@ const Email = lazy(() => import("./pages/email"));
 function App() {
   return (
     <ThemeProvider theme={theme}>
+    
       <Router>
         <Suspense fallback={null}>
           <Routes>
@@ -22,7 +23,7 @@ function App() {
             </Route>
           </Routes>
         </Suspense>
-      </Router>
+      </Router>  
     </ThemeProvider>
   );
 }
