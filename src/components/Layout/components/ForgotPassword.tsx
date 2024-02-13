@@ -8,7 +8,8 @@ import {
   styled,
   Select,
   MenuItem,
-} from "@mui/material";
+} from "@mui/material"; 
+import useMediaBreakpoints from "hooks/useMediaBreakpoints";
 import * as Yup from "yup";
 import { useFormik } from "formik";
 import React from "react";
@@ -50,7 +51,7 @@ interface DocType {
 const DocTypeOptions: DocType[] = [
   { label: "Select Doc Type", value: " " },
   { label: "HKD", value: "HKD" },
-  { label: "HKD2", value: "HKD2" },
+  { label: "password", value: "password" },
 ];
 const initialValues: Values = {
   docType: " ",
@@ -96,8 +97,14 @@ const validationSchema = Yup.object({
     .matches(/^[^\s].*/, "Contact is required")
     .trim()
     .strict(true),
-});     
-export default function ForgotPassword() {
+});        
+
+export default function ForgotPassword() {  
+  const {
+    
+    commonTabletMobile,
+   
+  } = useMediaBreakpoints(); 
   let formik = useFormik({
     initialValues,
     validationSchema,
@@ -105,7 +112,184 @@ export default function ForgotPassword() {
       console.log(values);
       // Handle form submission here
     },
+  });  
+  const StyledSelectCountryCode = styled(Select)({
+    width: "30%",
+    height: "43px",
+    marginTop: "5px",   
+    ...(commonTabletMobile && {
+      width: '35%',
+      transform: "translate(0%)"
+    })
+  
   });
+  const StyledDocumentIdBox = styled(Box)({
+    width: "35%",   
+    ...(commonTabletMobile && {
+      width: '80vw',
+      transform: "translate(0%)"
+    })
+  });
+  const StyledFormikError = styled(Typography)({
+    color: "red",
+    marginTop: "5px", 
+    fontSize:"14px",
+    paddingLeft:"4px",
+    width: "100%",
+  });
+  const StyledStackDocument = styled(Stack)({
+    // border: '1px solid red',
+    width: "100%",
+    flexWrap: "wrap",
+    justifyContent: "space-between",
+  });
+  const StyledPaper = styled(Paper)({
+    // border: '1px solid red',
+    width: "90vw",
+    maxHeight: "90vh",
+    padding: "45px", 
+    paddingTop:"15px",
+    top: "50%",
+    transform: "translate(0,-50%)",
+    overflowY: "auto",
+    position: "fixed",
+    boxSizing: "border-box", 
+    borderRadius:"15px", 
+    "&::-webkit-scrollbar":{ 
+      width:"0px", 
+      height:"0px"
+    }
+  });
+  const StyledSelectDoc = styled(Select)({
+    width: "100%",
+    height: "43px",
+    marginTop: "5px",
+    boxShadow: "none !important",
+  });
+  const ForgotPasswordTypo = styled(Typography)({
+    textAlign: "center",
+    fontWeight: "900",
+    fontSize: "21px",
+    width: "100%",
+    marginTop: "12px",
+  });
+  const StyledOTPRequestLabel = styled(Typography)({
+    textAlign: "center",
+    fontSize: "16px",
+    width: "100%",
+    marginTop: "32px",
+  });
+  const StyledDocumentType = styled(Box)({
+    width: "35%", 
+    ...(commonTabletMobile && {
+      width: '80vw',
+      transform: "translate(0%)"
+    })
+  });
+  const StyledBoxMobileNo = styled(Box)(
+    () => ({
+      width: "35%",
+      ...(commonTabletMobile && {
+        width: '80vw',
+        transform: "translate(0%)"
+      })
+    }))
+  const StyledBoxEmail = styled(Box)({
+    width: "35%", 
+    ...(commonTabletMobile && {
+      width: '80vw',
+      transform: "translate(0%)"
+    })
+  });
+  const StyledDocumentIDTextField = styled(TextField)({
+    marginTop: "25px",
+    width: "60%",
+    "& input": {
+      padding: "10px",
+    }, 
+    ...(commonTabletMobile && {
+      width: '100%',
+      transform: "translate(0%)"
+    })
+  });
+  const StyledContactTextEmail = styled(TextField)({
+    marginTop: "5px",
+    width: "100%",
+    "& input": {
+      padding: "10px",
+    },
+    "&:focus": {
+      border: " solid black 1px !important",
+    }, 
+    ...(commonTabletMobile && {
+      width: '100%',
+      transform: "translate(0%)"
+    })
+  });
+  const StyledContactTextField = styled(TextField)({
+    marginTop: "5px",
+    width: "65%", 
+    marginLeft:"5%",
+    "& input": {
+      padding: "10px",
+    },
+    "&:focus": {
+      border: " solid black 1px !important",
+    },      
+    ...(commonTabletMobile && {
+      width: '60%',
+      transform: "translate(0%)"
+    })
+  
+  });
+  const StyledEnglishNameTextField = styled(TextField)({
+    marginTop: "5px",
+    width: "100%",
+    "& input": {
+      padding: "10px",
+    },
+    "&:focus": {
+      border: " solid black 1px !important",
+    },
+  });
+  const StyledEnglishNameBox = styled(Box)({
+    marginTop: "10px",
+    width: "35%",  
+    ...(commonTabletMobile && {
+      width: '100%',
+      transform: "translate(0%)"
+    })
+  });
+  const StyledStackContact = styled(Stack)({
+    justifyContent: "space-between",      
+    flexWrap: "wrap",
+    width: "100%",  
+    
+  });
+  const StyledButtonStack = styled(Stack)({
+    justifyContent: "space-between",
+    width: "100%",
+    marginTop: "25px",
+  });
+  const StyledButtonCancel = styled(Button)({
+    width: "35%",
+    color: "rgb(173, 185, 196)",
+    background: "rgb(224, 224, 224)",
+    "&:hover": {
+      background: "rgb(224, 224, 224)  !important",
+    },
+    textTransform: "none",
+  });
+  const StyledButtonSubmit = styled(Button)({
+    width: "35%",
+    background: "rgb(176, 28, 20)",
+    color: "white",
+    textTransform: "none",
+    "&:hover": {
+      background: "rgb(176, 28, 20)  !important",
+    },
+  });
+  
   return (
     <StyledPaper>
       <form onSubmit={formik.handleSubmit}>
@@ -117,7 +301,7 @@ export default function ForgotPassword() {
             <Typography>Document Type:</Typography>
             <StyledSelectDoc
               id="docType"
-              name="docType"
+              name="docType"  
               value={formik.values.docType}
               placeholder="Select Doc Type"
               onChange={formik.handleChange}
@@ -135,10 +319,10 @@ export default function ForgotPassword() {
             <StyledDocumentIDTextField
               name="documentId"
               onChange={formik.handleChange}
-              placeholder="Document ID"
+              placeholder={`${formik.values.docType === "password" ? "Document ID" :"Hong Kong ID"}`}
             />
             {formik.touched.documentId && formik.errors.documentId ? (
-              <StyledFormikError>{formik.errors.documentId}</StyledFormikError>
+              <StyledFormikError>{ formik.values.docType === "password" ?formik.errors.documentId:"Hong Kong ID"}</StyledFormikError>
             ) : null}
           </StyledDocumentIdBox>
           <StyledEnglishNameBox>
@@ -197,181 +381,7 @@ export default function ForgotPassword() {
         </StyledButtonStack>
       </form>
     </StyledPaper>
-  );
+  );  
+  
 }
 //All Styles Goes Here
-const StyledSelectCountryCode = styled(Select)({
-  width: "30%",
-  height: "43px",
-  marginTop: "5px",   
-  '@media (max-width: 1000px)': {
-    width: '35%',  
-    transform:"translate(0%)"
-  }, 
-
-});
-const StyledDocumentIdBox = styled(Box)({
-  width: "35%",   
-  '@media (max-width: 1000px)': {
-    width: '80vw',  
-    transform:"translate(0%)"
-  },
-});
-const StyledFormikError = styled(Typography)({
-  color: "red",
-  marginTop: "5px", 
-  fontSize:"14px",
-  paddingLeft:"4px",
-  width: "100%",
-});
-const StyledStackDocument = styled(Stack)({
-  // border: '1px solid red',
-  width: "100%",
-  flexWrap: "wrap",
-  justifyContent: "space-between",
-});
-const StyledPaper = styled(Paper)({
-  // border: '1px solid red',
-  width: "90vw",
-  maxHeight: "90vh",
-  padding: "45px", 
-  paddingTop:"15px",
-  top: "50%",
-  transform: "translate(0,-50%)",
-  overflowY: "auto",
-  position: "fixed",
-  boxSizing: "border-box", 
-  borderRadius:"15px", 
-  "&::-webkit-scrollbar":{ 
-    width:"0px", 
-    height:"0px"
-  }
-});
-const StyledSelectDoc = styled(Select)({
-  width: "100%",
-  height: "43px",
-  marginTop: "5px",
-  boxShadow: "none !important",
-});
-const ForgotPasswordTypo = styled(Typography)({
-  textAlign: "center",
-  fontWeight: "900",
-  fontSize: "21px",
-  width: "100%",
-  marginTop: "12px",
-});
-const StyledOTPRequestLabel = styled(Typography)({
-  textAlign: "center",
-  fontSize: "16px",
-  width: "100%",
-  marginTop: "32px",
-});
-const StyledDocumentType = styled(Box)({
-  width: "35%", 
-  '@media (max-width: 1000px)': {
-    width: '80vw',  
-    transform:"translate(0%)"
-  },
-});
-const StyledBoxMobileNo = styled(Box)({
-  width: "35%", 
-  '@media (max-width: 1000px)': {
-    width: '80vw',  
-    transform:"translate(0%)"
-  },
-});
-const StyledBoxEmail = styled(Box)({
-  width: "35%", 
-  '@media (max-width: 1000px)': {
-    width: '80vw',  
-    transform:"translate(0%)"
-  },
-});
-const StyledDocumentIDTextField = styled(TextField)({
-  marginTop: "25px",
-  width: "60%",
-  "& input": {
-    padding: "10px",
-  }, 
-  '@media (max-width: 1000px)': {
-    width: '100%',  
-  },
-});
-const StyledContactTextEmail = styled(TextField)({
-  marginTop: "5px",
-  width: "100%",
-  "& input": {
-    padding: "10px",
-  },
-  "&:focus": {
-    border: " solid black 1px !important",
-  }, 
-  '@media (max-width: 1000px)': {
-    width: '100%',  
-    transform:"translate(0%)"
-  },
-  
-});
-const StyledContactTextField = styled(TextField)({
-  marginTop: "5px",
-  width: "65%", 
-  marginLeft:"5%",
-  "& input": {
-    padding: "10px",
-  },
-  "&:focus": {
-    border: " solid black 1px !important",
-  },      
-  '@media (max-width: 1000px)': {
-    width: '60%',  
-    transform:"translate(0%)"
-  },
-
-});
-const StyledEnglishNameTextField = styled(TextField)({
-  marginTop: "5px",
-  width: "100%",
-  "& input": {
-    padding: "10px",
-  },
-  "&:focus": {
-    border: " solid black 1px !important",
-  },
-});
-const StyledEnglishNameBox = styled(Box)({
-  marginTop: "10px",
-  width: "35%",  
-  '@media (max-width: 1000px)': {
-    width: '80vw',  
-    transform:"translate(0%)"
-  },
-});
-const StyledStackContact = styled(Stack)({
-  justifyContent: "space-between",      
-  flexWrap: "wrap",
-  width: "100%",  
-  
-});
-const StyledButtonStack = styled(Stack)({
-  justifyContent: "space-between",
-  width: "100%",
-  marginTop: "25px",
-});
-const StyledButtonCancel = styled(Button)({
-  width: "35%",
-  color: "rgb(173, 185, 196)",
-  background: "rgb(224, 224, 224)",
-  "&:hover": {
-    background: "rgb(224, 224, 224)  !important",
-  },
-  textTransform: "none",
-});
-const StyledButtonSubmit = styled(Button)({
-  width: "35%",
-  background: "rgb(176, 28, 20)",
-  color: "white",
-  textTransform: "none",
-  "&:hover": {
-    background: "rgb(176, 28, 20)  !important",
-  },
-});

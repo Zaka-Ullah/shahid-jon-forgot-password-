@@ -7,15 +7,16 @@ const useMediaBreakpoints = () => {
   const tabletPoint = BREAKPOINT_VALUES.md;
   const desktop2Point = BREAKPOINT_VALUES.md2;
   const desktopPoint = BREAKPOINT_VALUES.lg;
-
+  const commonmobileTablet=BREAKPOINT_VALUES.md1;
   const rangeMobile2Breakpoint = useMediaQuery(
     `(min-width:0px) and (max-width:${mobile2Point}px)`
   );
   const rangeMobileBreakpoint = useMediaQuery(
     `(min-width:0px) and (max-width:${mobilePoint}px)`
-  );
-  const upMobileBreakpoint = useMediaQuery(`(min-width:${mobilePoint}px)`);
+  ); 
 
+  const upMobileBreakpoint = useMediaQuery(`(min-width:${mobilePoint}px)`);
+  const commonTabletMobile=useMediaQuery(`(max-width:${commonmobileTablet}px)`)
   const rangeTabletBreakpoint = useMediaQuery(
     `(min-width:${mobilePoint}px) and (max-width:${tabletPoint - 1}px)`
   );
@@ -33,6 +34,7 @@ const useMediaBreakpoints = () => {
   const downDesktop2Breakpoint = useMediaQuery(`(max-width:${desktop2Point}px)`);
 
   return {
+    commonTabletMobile,
     rangeMobileBreakpoint,
     upMobileBreakpoint,
     rangeTabletBreakpoint,
