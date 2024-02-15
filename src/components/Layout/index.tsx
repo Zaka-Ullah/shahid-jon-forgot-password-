@@ -2,7 +2,7 @@ import { BoxProps, Stack, Typography, useTheme } from "@mui/material";
 import { Header, Sidebar, Footer } from "./components";
 import { Outlet } from "react-router-dom";
 import { useState } from "react";
-import Main from "./components/Main";
+import Main from "./components/Main"; 
 import { Row } from "components/Row";
 import ForgotPassword from "./components/ForgotPassword";
 
@@ -26,8 +26,9 @@ const Layout = (props: BoxProps) => {
       justifyContent="space-between"
       bgcolor="#f4f4f4"
     >    
-
-     <ForgotPassword/>
+    
+     <ForgotPassword/> 
+  
     
     {/*
       <Header {...{ openSidebar, onToggleSidebar }} />
